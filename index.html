@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pecel Lele & Ayam Penyet Bang Fadla</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+
+<header class="hero brutal-hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <div class="brand-wrap">
+      <img src="./gambar/file_00000000679471fd9c3fdb7d72a7652d.png" 
+           alt="Logo Pecel Lele Bang Fadla"
+           class="brand-logo">
+
+      <div class="brand-text">
+        <h1>Pecel Lele & Ayam Penyet Bang Fadla</h1>
+        <p>Jl. M Yusuf 1 No 14A, Sukmajaya, Depok</p>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a class="btn maps" target="_blank"
+      href="https://maps.google.com/?q=Jl.+M+Yusuf+1+No+14A+Depok">
+        <i class="fa-solid fa-location-dot"></i> Maps
+      </a>
+
+      <a class="btn wa" target="_blank"
+      href="https://wa.me/6281212410394">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+
+      <a class="btn gofood" target="_blank"
+      href="https://gofood.link/a/DdWhJrs">
+        <i class="fa-solid fa-burger"></i> GoFood
+      </a>
+
+      <a class="btn grabfood" target="_blank"
+      href="https://r.grab.com/g/6-20260206_113019_223a31b21fc94d04a6330ea591babbbb_MEXMPS-6-C3BTHAWDR4CWGT">
+        <i class="fa-solid fa-motorcycle"></i> GrabFood
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= NAV TABS ================= -->
+
+<nav class="tabs brutal-tabs">
+  <button class="tab active" onclick="showTab('utama',this)">Menu Utama</button>
+  <button class="tab" onclick="showTab('tambahan',this)">Tambahan</button>
+  <button class="tab" onclick="showTab('minuman',this)">Minuman</button>
+
+  <button class="tab cart-tab" onclick="showTab('cart',this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+  </button>
+</nav>
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+  <!-- MENU UTAMA -->
+  <section id="tab-utama">
+    <div id="menu-utama" class="grid"></div>
+  </section>
+
+  <!-- TAMBAHAN -->
+  <section id="tab-tambahan" class="hidden">
+    <div id="menu-tambahan" class="grid"></div>
+  </section>
+
+  <!-- MINUMAN -->
+  <section id="tab-minuman" class="hidden">
+    <div id="menu-minuman" class="grid"></div>
+  </section>
+
+  <!-- CART -->
+  <section id="tab-cart" class="hidden cart brutal-cart">
+    <ul id="cart-list"></ul>
+
+    <div class="cart-bottom">
+
+      <p class="total">
+        Total: <span id="total">Rp 0</span>
+      </p>
+
+      <h3>Catatan Untuk Penjual</h3>
+      <textarea id="customerNote"
+      placeholder="Contoh: sambal dipisah ya..."></textarea>
+
+      <h3>Metode Pembayaran</h3>
+
+      <div class="payment-method">
+        <label>
+          <input type="radio" name="payment" value="tunai" checked>
+          Tunai
+        </label>
+
+        <label>
+          <input type="radio" name="payment" value="qris">
+          QRIS
+        </label>
+      </div>
+
+      <!-- QRIS -->
+      <div class="qris-box hidden" id="qrisBox">
+        <h4>Scan QRIS</h4>
+        <img src="gambar/qr.png" alt="QRIS Bang Fadla">
+
+        <div class="upload-area" id="uploadArea">
+          <i class="fa-solid fa-upload"></i>
+          Upload Bukti Transfer
+          <input type="file" id="bukti" hidden accept="image/*">
+        </div>
+
+        <div id="file-preview" class="file-preview hidden"></div>
+      </div>
+
+      <div class="cart-actions">
+        <button class="clear" onclick="clearCart()">Hapus</button>
+        <button class="checkout" onclick="checkout()">Pesan Sekarang</button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FLOATING CART ================= -->
+
+<div class="floating-cart brutal-cart-btn"
+onclick="showTab('cart', document.querySelector('.cart-tab'))">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="floating-count">0</span>
+</div>
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
