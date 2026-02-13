@@ -1,32 +1,70 @@
+/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 body{
   font-family:'Poppins',sans-serif;
-  background:#0f0f0f;
+  background:linear-gradient(135deg,#1a0000,#0f0f0f);
   color:white;
+  touch-action: manipulation;
 }
 
 /* ================= HERO ================= */
-
 .hero{
   height:280px;
-  background:linear-gradient(135deg,#000,#1a1a1a);
+  background:linear-gradient(135deg,#b71c1c,#e53935);
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   position:relative;
+  overflow:hidden;
+}
+
+.brutal-hero::after{
+  content:"";
+  position:absolute;
+  width:300%;
+  height:300%;
+  background:radial-gradient(circle,rgba(255,215,0,.2) 0%,transparent 60%);
+  animation: rotateGlow 10s linear infinite;
+  pointer-events:none; /* 🔥 FIX TOUCH */
+  z-index:0;
+}
+
+@keyframes rotateGlow{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
 }
 
 .hero h1{
   color:#ffd700;
-  font-size:28px;
+  font-size:26px;
 }
 
+.brand-wrap{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.brand-logo{
+  width:100px;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(255,215,0,.6);
+}
+
+/* ================= BUTTON GROUP ================= */
 .btn-group{
   margin-top:15px;
   display:flex;
@@ -43,6 +81,7 @@ body{
   text-decoration:none;
   color:white;
   transition:.3s;
+  touch-action: manipulation;
 }
 
 .maps{background:#444}
@@ -50,17 +89,12 @@ body{
 .gofood{background:#ee2737}
 .grabfood{background:#00b14f}
 
-.btn:hover{
-  transform:translateY(-3px);
-}
-
 /* ================= TABS ================= */
-
 .tabs{
   display:flex;
   justify-content:center;
   gap:10px;
-  padding:20px;
+  padding:16px;
   flex-wrap:wrap;
 }
 
@@ -72,11 +106,13 @@ body{
   color:white;
   cursor:pointer;
   transition:.3s;
+  touch-action: manipulation;
 }
 
 .tab.active{
-  background:#ffd700;
-  color:black;
+  background:linear-gradient(135deg,#ffd700,#ffb300);
+  color:#b71c1c;
+  font-weight:700;
 }
 
 .cart-tab{
@@ -84,145 +120,119 @@ body{
 }
 
 /* ================= CONTAINER ================= */
-
 .container{
   padding:20px;
 }
 
-/* ================= GRID MENU ================= */
-
+/* ================= GRID ================= */
 .grid{
   display:grid;
-  gap:20px;
+  gap:18px;
 }
 
-/* Desktop 5 kolom */
-@media (min-width:1200px){
-  .grid{
-    grid-template-columns:repeat(5,1fr);
-  }
-}
-
-/* Laptop 4 kolom */
-@media (min-width:900px) and (max-width:1199px){
-  .grid{
-    grid-template-columns:repeat(4,1fr);
-  }
-}
-
-/* Tablet 3 kolom */
-@media (min-width:600px) and (max-width:899px){
-  .grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-/* HP 2 kolom */
 @media (max-width:599px){
   .grid{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-/* ================= CARD ================= */
+@media (min-width:600px){
+  .grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
 
+/* ================= CARD ================= */
 .card{
   background:#1a1a1a;
   border-radius:18px;
-  padding:15px;
-  position:relative;
-  transition:.3s;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
-}
-
-.card:hover{
-  transform:translateY(-5px);
+  padding:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
 }
 
 .card img{
   width:100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio:16/9;
   object-fit:cover;
-  display:block;
+  border-radius:12px;
 }
 
-
-.price-badge{
-  position:absolute;
-  top:15px;
-  right:15px;
-  background:#ffd700;
-  color:black;
-  padding:4px 10px;
-  border-radius:20px;
-  font-weight:600;
-  font-size:12px;
+.card-body{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
 
 .card h4{
-  margin-top:10px;
   font-size:14px;
   min-height:40px;
 }
 
+.price{
+  color:#ffd700;
+  font-weight:700;
+}
+
 .card button{
-  margin-top:10px;
-  width:100%;
+  margin-top:6px;
   padding:8px;
   border:none;
   border-radius:20px;
-  background:#25d366;
+  background:linear-gradient(135deg,#e53935,#b71c1c);
+  color:white;
   font-weight:600;
   cursor:pointer;
-  transition:.3s;
+  box-shadow:0 4px 0 #7f0000;
+  touch-action: manipulation;
 }
 
-.card button:hover{
-  background:#1db954;
+.card button:active{
+  transform:translateY(3px);
+  box-shadow:0 1px 0 #7f0000;
 }
 
 /* ================= CART ================= */
-
 .cart{
   background:#1a1a1a;
-  padding:25px;
+  padding:20px;
   border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  position:relative;
+  z-index:600; /* 🔥 FIX TAP */
 }
 
 #cart-list li{
-  background:linear-gradient(135deg,#111,#1c1c1c);
-  padding:15px;
+  background:#111;
+  padding:12px;
   border-radius:12px;
   margin-bottom:10px;
   display:flex;
-  flex-direction:column;
-  gap:8px;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 #cart-list button{
-  padding:4px 8px;
+  background:#25d366;
   border:none;
-  border-radius:8px;
-  background:#333;
+  padding:4px 10px;
+  border-radius:20px;
   color:white;
-  cursor:pointer;
+  font-weight:600;
+  touch-action: manipulation;
 }
 
 .total{
   margin-top:15px;
-  padding:15px;
-  background:linear-gradient(135deg,#ffd700,#e6c200);
-  color:black;
+  padding:14px;
+  background:linear-gradient(135deg,#ffd700,#ffb300);
+  color:#b71c1c;
   border-radius:12px;
-  font-weight:700;
-  font-size:18px;
+  font-weight:800;
   text-align:center;
-  box-shadow:0 8px 20px rgba(255,215,0,0.3);
 }
 
 /* ================= TEXTAREA ================= */
-
 textarea{
   width:100%;
   margin-top:8px;
@@ -233,21 +243,40 @@ textarea{
   color:white;
 }
 
-/* ================= PAYMENT ================= */
-
+/* ================= PAYMENT (🔥 FIX UTAMA) ================= */
 .payment-method{
   margin-top:10px;
   display:flex;
-  gap:20px;
+  gap:15px;
   flex-wrap:wrap;
 }
 
+.payment-method label{
+  padding:10px 16px;
+  background:#1c1c1c;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  pointer-events:auto;
+  touch-action: manipulation;
+}
+
+.payment-method input{
+  pointer-events:auto;
+  cursor:pointer;
+}
+
+/* ================= QRIS ================= */
 .qris-box{
   margin-top:15px;
   background:#111;
   padding:15px;
-  border-radius:12px;
+  border-radius:14px;
   text-align:center;
+  position:relative;
+  z-index:650; /* 🔥 FIX TAP */
 }
 
 .qris-box img{
@@ -258,7 +287,6 @@ textarea{
 }
 
 /* ================= UPLOAD ================= */
-
 .upload-area{
   margin-top:10px;
   border:2px dashed #ffd700;
@@ -266,6 +294,7 @@ textarea{
   border-radius:12px;
   cursor:pointer;
   font-size:13px;
+  touch-action: manipulation;
 }
 
 .file-preview{
@@ -276,12 +305,10 @@ textarea{
 }
 
 /* ================= ACTION BUTTONS ================= */
-
 .cart-actions{
   margin-top:20px;
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
 }
 
 .clear{
@@ -291,6 +318,7 @@ textarea{
   padding:10px;
   border:none;
   border-radius:25px;
+  touch-action: manipulation;
 }
 
 .checkout{
@@ -301,25 +329,24 @@ textarea{
   border:none;
   border-radius:25px;
   font-weight:600;
+  touch-action: manipulation;
 }
 
-/* ================= FLOATING CART ================= */
-
+/* ================= FLOATING CART (🔥 FIX) ================= */
 .floating-cart{
   position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#ffd700;
-  color:black;
-  width:60px;
-  height:60px;
+  bottom:20px;
+  right:20px;
+  width:56px;
+  height:56px;
   border-radius:50%;
+  background:linear-gradient(135deg,#ffd700,#ffb300);
+  color:#b71c1c;
   display:flex;
   align-items:center;
   justify-content:center;
-  cursor:pointer;
   font-size:20px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  z-index:500; /* 🔥 DITURUNKAN */
 }
 
 .floating-cart span{
@@ -337,389 +364,35 @@ textarea{
   font-size:11px;
 }
 
+/* ================= TOAST ================= */
+.toast{
+  position:fixed;
+  bottom:100px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#25d366,#1db954);
+  padding:12px 20px;
+  border-radius:30px;
+  font-weight:600;
+  opacity:0;
+  transition:.3s;
+  z-index:9999;
+}
+
+.toast.show{
+  opacity:1;
+}
+
+/* ================= UTIL ================= */
 .hidden{
   display:none;
 }
 
-/* ================= TOAST NOTIF ================= */
-
-.toast{
-  position:fixed;
-  bottom:100px;
-  left:50%;
-  transform:translateX(-50%);
-  background:linear-gradient(135deg,#25d366,#1db954);
-  padding:12px 20px;
-  border-radius:30px;
-  color:white;
-  font-weight:600;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
-  opacity:0;
-  transition:.4s;
-  z-index:9999;
-}
-
-.toast.show{
-  opacity:1;
-  bottom:120px;
-}
-
-/* ================= ANIMASI CARD ================= */
-
-.card.added{
-  animation:pop .4s ease;
-}
-
-@keyframes pop{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-  100%{transform:scale(1)}
-}
-
-/* ================= FLOATING CART SHAKE ================= */
-
-.floating-cart.shake{
-  animation:shake .4s;
-}
-
-@keyframes shake{
-  0%{transform:rotate(0)}
-  25%{transform:rotate(-10deg)}
-  50%{transform:rotate(10deg)}
-  75%{transform:rotate(-5deg)}
-  100%{transform:rotate(0)}
-}
-
-/* ================= QTY BUTTON MODERN ================= */
-
-#cart-list li{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-#cart-list li div{
-  margin:4px 0;
-}
-
-#cart-list button{
-  background:#25d366;
-  border:none;
-  padding:4px 10px;
-  border-radius:20px;
-  color:white;
-  font-weight:600;
-  margin:0 3px;
-}
-
-/* ================= TOAST NOTIF ================= */
-
-.toast{
-  position:fixed;
-  bottom:100px;
-  left:50%;
-  transform:translateX(-50%);
-  background:linear-gradient(135deg,#25d366,#1db954);
-  padding:12px 20px;
-  border-radius:30px;
-  color:white;
-  font-weight:600;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
-  opacity:0;
-  transition:.4s;
-  z-index:9999;
-}
-
-.toast.show{
-  opacity:1;
-  bottom:120px;
-}
-
-/* ================= ANIMASI CARD ================= */
-
-.card.added{
-  animation:pop .4s ease;
-}
-
-@keyframes pop{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-  100%{transform:scale(1)}
-}
-
-/* ================= FLOATING CART SHAKE ================= */
-
-.floating-cart.shake{
-  animation:shake .4s;
-}
-
-@keyframes shake{
-  0%{transform:rotate(0)}
-  25%{transform:rotate(-10deg)}
-  50%{transform:rotate(10deg)}
-  75%{transform:rotate(-5deg)}
-  100%{transform:rotate(0)}
-}
-
-/* ================= QTY BUTTON MODERN ================= */
-
-#cart-list li{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-#cart-list li div{
-  margin:4px 0;
-}
-
-#cart-list button{
-  background:#25d366;
-  border:none;
-  padding:4px 10px;
-  border-radius:20px;
-  color:white;
-  font-weight:600;
-  margin:0 3px;
-}
-
-.card-body{
-  margin-top:10px;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.price{
-  font-weight:700;
-  color:#ffd700;
-  font-size:14px;
-}
-
-/* === Extra App Feel (Tidak ubah yang lama) === */
-
-.card button.clicked{
-  animation: clickAnim .25s ease;
-}
-
-@keyframes clickAnim{
-  0%{ transform:scale(1); }
-  50%{ transform:scale(.9); }
-  100%{ transform:scale(1); }
-}
-
-/* Cart shake */
-.floating-cart.bump{
-  animation: bump .3s ease;
-}
-
-@keyframes bump{
-  0%{ transform:scale(1); }
-  50%{ transform:scale(1.15); }
-  100%{ transform:scale(1); }
-}
-
-/* Toast smoother */
-.toast{
-  transition: opacity .3s ease, transform .3s ease;
-}
-
-/* ================= APP LEVEL UP ================= */
-
-/* Floating cart glow kalau ada isi */
-.floating-cart.active-glow{
-  box-shadow: 0 0 20px rgba(229,57,53,.7);
-  transition:.3s;
-}
-
-/* Badge animasi naik */
-#cart-count.pop{
-  animation: popBadge .3s ease;
-}
-
-@keyframes popBadge{
-  0%{ transform:scale(1); }
-  50%{ transform:scale(1.4); }
-  100%{ transform:scale(1); }
-}
-
-/* Flash hijau di card saat masuk */
-.card.flash{
-  animation: flashGreen .4s ease;
-}
-
-@keyframes flashGreen{
-  0%{ box-shadow:0 0 0 rgba(76,175,80,0); }
-  50%{ box-shadow:0 0 15px rgba(76,175,80,.8); }
-  100%{ box-shadow:0 0 0 rgba(76,175,80,0); }
-}
-
-/* Smooth cart slide feel */
-#tab-cart{
-  transition: transform .4s cubic-bezier(.25,.8,.25,1);
-}
-
-/* Button press depth */
-.card button{
-  box-shadow:0 4px 0 #b71c1c;
-}
-
-.card button:active{
-  transform:translateY(3px);
-  box-shadow:0 1px 0 #b71c1c;
-}
-
-/* ================= FLY TO CART ================= */
-
+/* ================= FLY ITEM ================= */
 .fly-item{
   position:fixed;
   z-index:9999;
-  pointer-events:none;
+  pointer-events:none; /* 🔥 WAJIB */
   border-radius:12px;
   object-fit:cover;
-  transform:translate(0,0) scale(1);
-  will-change:transform, opacity;
-}
-
-
-.fly-item{
-  position:fixed;
-  z-index:9999;
-  pointer-events:none;
-  border-radius:12px;
-  object-fit:cover;
-  will-change:transform, opacity;
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
-}
-
-/* ================= BRUTAL BRANDING ================= */
-
-.brutal-hero{
-  background:linear-gradient(135deg,#b71c1c,#e53935);
-  position:relative;
-  overflow:hidden;
-}
-
-.brutal-hero::after{
-  content:"";
-  position:absolute;
-  width:300%;
-  height:300%;
-  background:radial-gradient(circle,rgba(255,215,0,.2) 0%,transparent 60%);
-  animation: rotateGlow 10s linear infinite;
-}
-
-@keyframes rotateGlow{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
-}
-
-.brand-wrap{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.brand-logo{
-  width:110px;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(255,215,0,.6);
-  animation:logoFloat 3s ease-in-out infinite;
-}
-
-@keyframes logoFloat{
-  0%{ transform:translateY(0); }
-  50%{ transform:translateY(-8px); }
-  100%{ transform:translateY(0); }
-}
-
-/* Tabs brutal */
-.brutal-tabs .tab.active{
-  background:linear-gradient(135deg,#ffd700,#ffb300);
-  color:#b71c1c;
-  font-weight:800;
-  box-shadow:0 0 15px rgba(255,215,0,.6);
-}
-
-/* Button pesan brutal */
-.card button{
-  background:linear-gradient(135deg,#e53935,#b71c1c);
-  color:white;
-  box-shadow:0 5px 0 #7f0000;
-}
-
-.card button:hover{
-  background:linear-gradient(135deg,#ff5252,#c62828);
-}
-
-/* Floating cart brutal */
-.brutal-cart-btn{
-  background:linear-gradient(135deg,#ffd700,#ffb300);
-  color:#b71c1c;
-  box-shadow:0 0 20px rgba(255,215,0,.7);
-}
-
-/* Total brutal */
-.total{
-  background:linear-gradient(135deg,#ffd700,#ffb300);
-  color:#b71c1c;
-  box-shadow:0 0 25px rgba(255,215,0,.5);
-}
-
-/* Body darker red tone */
-body{
-  background:linear-gradient(135deg,#1a0000,#0f0f0f);
-}
-
-.header{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:15px 0;
-}
-
-.logo-container{
-  width:100%;
-  display:flex;
-  justify-content:center;
-}
-
-.logo{
-  width:280px;
-  max-width:90%;
-  height:auto;
-  object-fit:contain;
-  transition:0.3s ease;
-}
-
-.logo:hover{
-  transform:scale(1.05);
-}
-
-/* ===== FIX GLOW BIAR GA DOBEL ===== */
-
-.brutal-hero{
-  overflow:hidden;
-}
-
-.brutal-hero::after{
-  top:-150% !important;
-  left:-100% !important;
-  right:auto !important;
-}
-
-/* === FIX HERO GLOW BLOCK CLICK === */
-
-.brutal-hero::after{
-  pointer-events:none !important;
-  z-index:0;
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
 }
