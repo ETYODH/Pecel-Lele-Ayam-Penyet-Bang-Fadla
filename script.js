@@ -461,3 +461,13 @@ document.addEventListener("click", function(e){
   }
 
 });
+
+function startApp(){
+  const welcome = document.getElementById("welcomeFrame");
+  welcome.classList.add("hide");
+
+  setTimeout(()=>{
+    welcome.style.display = "none";
+  },500);
+}
+
