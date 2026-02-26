@@ -11,10 +11,25 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body>
+
+<!-- ================= WELCOME FRAME ================= -->
+
+<div id="welcomeFrame" class="welcome-frame">
+  <div class="welcome-content">
+    <img src="./gambar/file_00000000679471fd9c3fdb7d72a7652d.png" 
+         class="welcome-logo">
+
+    <h1>Pecel Lele & Ayam Penyet</h1>
+    <h2>Bang Fadla</h2>
+
+    <p>Siap Masak, Siap Antar 🔥 Order Sekarang!</p>
+
+    <button onclick="startApp()">Pesan Sekarang</button>
+  </div>
+</div>
 
 <!-- ================= HERO ================= -->
 
@@ -76,22 +91,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <main class="container">
 
-  <!-- MENU UTAMA -->
   <section id="tab-utama">
     <div id="menu-utama" class="grid"></div>
   </section>
 
-  <!-- TAMBAHAN -->
   <section id="tab-tambahan" class="hidden">
     <div id="menu-tambahan" class="grid"></div>
   </section>
 
-  <!-- MINUMAN -->
   <section id="tab-minuman" class="hidden">
     <div id="menu-minuman" class="grid"></div>
   </section>
 
-  <!-- CART -->
   <section id="tab-cart" class="hidden cart brutal-cart">
     <ul id="cart-list"></ul>
 
@@ -119,7 +130,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         </label>
       </div>
 
-      <!-- QRIS -->
       <div class="qris-box hidden" id="qrisBox">
         <h4>Scan QRIS</h4>
         <img src="gambar/qr.png" alt="QRIS Bang Fadla">
@@ -141,6 +151,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     </div>
   </section>
 
+  <!-- ================= PREMIUM SECTION ================= -->
+
+  <section class="premium-section">
+    <div class="premium-box">
+      <h2>🔥 Menu Favorit Hari Ini</h2>
+      <p>Masak fresh setiap order. Pedasnya nampol, bikin nagih!</p>
+
+      <div class="premium-highlights">
+        <div><i class="fa-solid fa-fire"></i> Fresh Masak</div>
+        <div><i class="fa-solid fa-motorcycle"></i> Cepat Antar</div>
+        <div><i class="fa-solid fa-star"></i> Rating Tinggi</div>
+        <div><i class="fa-solid fa-wallet"></i> Harga Bersahabat</div>
+      </div>
+
+      <button onclick="showTab('utama', document.querySelector('.tab'))">
+        Lihat Menu Sekarang
+      </button>
+    </div>
+  </section>
+
 </main>
 
 <!-- ================= FLOATING CART ================= -->
@@ -154,6 +184,26 @@ onclick="showTab('cart', document.querySelector('.cart-tab'))">
 <!-- ================= TOAST ================= -->
 
 <div id="toast" class="toast"></div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="premium-footer">
+  <div class="footer-content">
+    <div>
+      <h3>Pecel Lele & Ayam Penyet Bang Fadla</h3>
+      <p>Siap Masak • Siap Antar • Siap Bikin Nagih 🔥</p>
+    </div>
+
+    <div>
+      <p><i class="fa-solid fa-location-dot"></i> Sukmajaya, Depok</p>
+      <p><i class="fa-brands fa-whatsapp"></i> 0812-1241-0394</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Bang Fadla. All Rights Reserved.
+  </div>
+</footer>
 
 <script src="script.js"></script>
 
