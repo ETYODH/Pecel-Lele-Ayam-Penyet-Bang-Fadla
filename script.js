@@ -4,13 +4,13 @@ let cart = [];
 /* ================= DATA (TIDAK DIUBAH) ================= */
 
 const menuUtama = [
-  { nama: "Pecel Ayam + Nasi", harga: 21000, img: "gambar/pecel ayam.jpg" },
+  { nama: "Pecel Ayam + Nasi", harga: 22000, img: "gambar/pecel ayam.jpg" },
   { nama: "Ayam Penyet + Nasi", harga: 22000, img: "gambar/ayam penyet 1.jpg" },
   { nama: "Ayam Bakar + Nasi", harga: 22000, img: "gambar/ayam bakar 1.jpg" },
-  { nama: "Ayam Kremes + Nasi", harga: 24000, img: "gambar/ayam kremes 1.jpg" },
+  { nama: "Ayam Kremes + Nasi", harga: 25000, img: "gambar/ayam kremes 1.jpg" },
   { nama: "Pecel Lele + Nasi", harga: 18000, img: "gambar/pecel lele.jpg" },
   { nama: "Lele Kremes + Nasi", harga: 21000, img: "gambar/kremes lele 1.jpg" },
-  { nama: "Ayam Goreng (Tanpa Nasi)", harga: 16000, img: "gambar/goreng.jpg" },
+  { nama: "Ayam Goreng (Tanpa Nasi)", harga: 17000, img: "gambar/goreng.jpg" },
   { nama: "Ayam Penyet (Tanpa Nasi)", harga: 17000, img: "gambar/penyettt.jpg" },
   { nama: "Ayam Bakar (Tanpa Nasi)", harga: 17000, img: "gambar/bara aja.jpg" },
   { nama: "Ayam Kremes (Tanpa Nasi)", harga: 19000, img: "gambar/ayam kremes.jpg" },
